@@ -1,0 +1,33 @@
+# Root query
+type Query {
+    userId: ID!
+    portfolio: Portfolio
+    rewards: Int
+}
+
+# Represents a user's entire portfolio
+type Portfolio {
+    assets: [PortfolioAsset!]
+}
+
+# Represents each cryptocurrency in a user's portfolio
+type PortfolioAsset {
+    id: ID!
+    quantity: Float
+    totalCost: Float
+    profitOrLoss: Float
+    currency: Currency
+}
+
+# Represents each cryptocurrency available
+type Currency {
+    id: ID!
+    name: String
+    symbol: String
+    kind: CurrencyKind
+}
+
+enum CurrencyKind {
+    CRYPTO
+    FIAT
+}

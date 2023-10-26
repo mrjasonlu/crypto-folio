@@ -1,0 +1,14 @@
+{
+  "name": "coinjar-coding-challenge",
+  "version": "1.0.0",
+  "description": "Coding challenge for the CoinJar Frontend technical interview",
+  "main": "index.js",
+  "author": "Aran Cauchi <aran@coinjar.com>",
+  "license": "Copyright CoinJar Pty Ltd",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
