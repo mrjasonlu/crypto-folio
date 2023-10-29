@@ -1,0 +1,9 @@
+{
+  "header": {
+    "profit_loss": "Profit/Loss"
+  },
+  "home": {
+    "title": "Your CoinJar",
+    "hide_balances": "Hide Balances"
+  }
+}
