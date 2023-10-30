@@ -4,6 +4,9 @@
   },
   "home": {
     "title": "Your CoinJar",
-    "hide_balances": "Hide Balances"
+    "hide_balance": "Hide Balances"
+  },
+  "accounts": {
+    "title": "accounts"
   }
 }

@@ -6,26 +6,27 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/screens/Home/Home';
 import Accounts from './src/screens/Accounts/Accounts';
 import environment from './src/relay/environment';
-import Header from './src/components/Header';
+import Header from '@src/components/Header/Header';
 import IconHome from './assets/images/Home.svg';
-import IconAccounts from './assets/images/Accounts.svg';
+import IconAccounts from '@assets/images/Accounts.svg';
 import './src/i18n/i18n';
+import { UserSettingsContextProvider } from '@src/contexts/UserSettingsContext';
+import { useTranslation } from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 const Root = createStackNavigator();
 
 function Tabs() {
+  const { t } = useTranslation();
+
   return (
     <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
         options={{
-          headerStyle: {
-            backgroundColor: 'rgba(50,81,186,1.0)',
-          },
-          headerTitle: props => <Header {...props} />,
+          header: () => <Header />,
           headerShadowVisible: false,
           tabBarIcon: () => {
-            return <IconHome />;
+            return <IconHome showLogo />;
           },
         }}
         name="Home"
@@ -33,12 +34,8 @@ function Tabs() {
       />
       <Tab.Screen
         options={{
-          headerStyle: {
-            backgroundColor: 'rgba(50,81,186,1.0)',
-          },
-          headerTitle: props => <Header {...props} />,
+          header: () => <Header title="Accounts" showLogo={false} />,
           headerShadowVisible: false,
-          headerTintColor: '#FFF',
           tabBarIcon: () => <IconAccounts />,
         }}
         name="Accounts"
@@ -51,15 +48,17 @@ function Tabs() {
 export default function App() {
   return (
     <RelayEnvironmentProvider environment={environment}>
-      <NavigationContainer>
-        <Root.Navigator>
-          <Root.Screen
-            name="Root"
-            component={Tabs}
-            options={{ headerShown: false }}
-          />
-        </Root.Navigator>
-      </NavigationContainer>
+      <UserSettingsContextProvider>
+        <NavigationContainer>
+          <Root.Navigator>
+            <Root.Screen
+              name="Root"
+              component={Tabs}
+              options={{ headerShown: false }}
+            />
+          </Root.Navigator>
+        </NavigationContainer>
+      </UserSettingsContextProvider>
     </RelayEnvironmentProvider>
   );
 }
