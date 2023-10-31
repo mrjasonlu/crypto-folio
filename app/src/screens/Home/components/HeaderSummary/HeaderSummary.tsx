@@ -4,6 +4,7 @@ import currency from 'currency.js';
 
 import styles from './styles';
 import { COLORS, FONT_SIZE } from '@src/styles/theme';
+import { replaceBalanceWithAsterisk } from '@src/utils/portfolioUtils';
 
 type HeaderSummaryProps = {
   totalBalance: number;
@@ -28,7 +29,7 @@ export default function HeaderSummary({
       ) : (
         <Text color={COLORS.WHITE} fontSize={FONT_SIZE.lg} fontWeight="700">
           {hideBalance
-            ? totalBalance.toString().replace(/./g, '*')
+            ? replaceBalanceWithAsterisk(totalBalance)
             : currency(totalBalance).format()}{' '}
           {localCurrency}
         </Text>

@@ -11,6 +11,7 @@ import IconRewards from '@assets/images/Rewards.svg';
 import IconArrowRight from '@assets/images/ArrowRight.svg';
 import styles from './styles';
 import { AccountBalance } from '@src/common/types';
+import { replaceBalanceWithAsterisk } from '@src/utils/portfolioUtils';
 
 type AccountSummaryProps = {
   navigateAccounts: () => void;
@@ -36,9 +37,7 @@ export default function AccountSummary({
         <View style={styles.detail}>
           <Text fontWeight="500">
             {hideBalance
-              ? accountBalance?.totalInLocalCurrency
-                  .toString()
-                  .replace(/./g, '*')
+              ? replaceBalanceWithAsterisk(accountBalance?.totalInLocalCurrency)
               : currency(accountBalance?.totalInLocalCurrency).format()}
           </Text>
           <TouchableOpacity
@@ -57,7 +56,7 @@ export default function AccountSummary({
         <View style={styles.detail}>
           <Text fontWeight="500">
             {hideBalance
-              ? accountBalance?.rewards.toString().replace(/./g, '*')
+              ? replaceBalanceWithAsterisk(accountBalance?.rewards)
               : accountBalance?.rewards}{' '}
             points
           </Text>

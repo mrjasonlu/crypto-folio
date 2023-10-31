@@ -32,3 +32,7 @@ export const getSymbolFromTickerPair = (ticker: string, currency: string) => {
   }
   return;
 };
+
+export const replaceBalanceWithAsterisk = (balance?: number | string) => {
+  return balance?.toString().replace(/./g, '*');
+};

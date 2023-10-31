@@ -5,7 +5,10 @@ import { PortfolioQueryKey } from '@src/providers/RealtimeTracker';
 import { useQuery } from '@tanstack/react-query';
 import { TickerPairList } from '@src/common/types';
 import List from '@src/components/List/List';
-import { FIAT_LIST } from '@src/utils/portfolioUtils';
+import {
+  FIAT_LIST,
+  replaceBalanceWithAsterisk,
+} from '@src/utils/portfolioUtils';
 import styles from './styles';
 import { DividerTypes } from '@src/components/List/types';
 import { AccountSettingsContext } from '@src/contexts/AccountSettingsContext';
@@ -42,9 +45,9 @@ export default function Accounts() {
           <View>
             <Text fontWeight="500">
               {state?.hideBalance
-                ? assets[symbol].balanceInLocalCurrency
-                    ?.toString()
-                    .replace(/./g, '*')
+                ? replaceBalanceWithAsterisk(
+                    assets[symbol].balanceInLocalCurrency,
+                  )
                 : currency(
                     assets[symbol].balanceInLocalCurrency as number,
                   ).format()}{' '}
@@ -77,7 +80,7 @@ export default function Accounts() {
           <View style={styles.cryptoDetails}>
             <Text fontWeight="500">
               {state?.hideBalance
-                ? assets[symbol].quantity?.toString().replace(/./g, '*')
+                ? replaceBalanceWithAsterisk(assets[symbol].quantity)
                 : assets[symbol].quantity}{' '}
               {symbol}
             </Text>
@@ -86,9 +89,9 @@ export default function Accounts() {
               color={COLORS.MIRAGE_600}
               fontWeight="500">
               {state?.hideBalance
-                ? assets[symbol].balanceInLocalCurrency
-                    ?.toString()
-                    .replace(/./g, '*')
+                ? replaceBalanceWithAsterisk(
+                    assets[symbol].balanceInLocalCurrency,
+                  )
                 : currency(
                     assets[symbol].balanceInLocalCurrency as number,
                   ).format()}{' '}
