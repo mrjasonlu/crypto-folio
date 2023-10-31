@@ -8,5 +8,11 @@
   },
   "accounts": {
     "title": "accounts"
+  },
+  "error": {
+    "api": {
+      "title": "Server error occured",
+      "message": "Please reload the app and try again."
+    }
   }
 }

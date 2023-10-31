@@ -9,15 +9,18 @@ type ListProps = {
 };
 
 export default function List({ dividers, listItems }: ListProps) {
-  const listItemView = listItems.map(({ avatar, content, subContent }, i) => (
-    <ListItem
-      avatar={avatar}
-      content={content}
-      subContent={subContent}
-      dividers={dividers}
-      lastItem={i === listItems.length - 1}
-    />
-  ));
+  const listItemView = listItems.map(
+    ({ key, avatar, content, subContent }, i) => (
+      <ListItem
+        key={key}
+        avatar={avatar}
+        content={content}
+        subContent={subContent}
+        dividers={dividers}
+        lastItem={i === listItems.length - 1}
+      />
+    ),
+  );
 
   return <View style={styles.container}>{listItemView}</View>;
 }

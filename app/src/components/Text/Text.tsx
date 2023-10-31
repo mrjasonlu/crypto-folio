@@ -12,7 +12,7 @@ type TextProps = {
 export default function Text({
   color = COLORS.BLACK,
   fontSize = FONT_SIZE.md,
-  fontWeight,
+  fontWeight = '400',
   children,
   style,
 }: TextProps) {

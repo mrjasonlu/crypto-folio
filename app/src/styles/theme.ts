@@ -2,6 +2,7 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   WHITE_A50: 'rgba(255, 255, 255, 0.5)',
   GREY_100: '#CACAE0',
+  MIRAGE_600: '#656D7D',
   BLACK: '#000000',
   BLUE_600: '#3251BA',
 };

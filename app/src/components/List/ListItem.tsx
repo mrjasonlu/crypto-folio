@@ -3,6 +3,7 @@ import styles from './styles';
 import { Divider } from './types';
 
 export type ListItemProps = {
+  key: string;
   avatar: JSX.Element;
   content: JSX.Element;
   subContent: JSX.Element;
