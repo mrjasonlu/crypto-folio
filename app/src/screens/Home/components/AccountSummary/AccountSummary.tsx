@@ -22,6 +22,8 @@ export default function AccountSummary({
   navigateAccounts,
   hideBalance,
 }: AccountSummaryProps) {
+  const { t } = useTranslation();
+
   const { data } = useQuery({
     queryKey: AccountBalanceQueryKey,
   });
@@ -32,7 +34,9 @@ export default function AccountSummary({
     {
       key: 'accounts',
       avatar: <IconPortfolio />,
-      content: <Text fontWeight="600">Accounts</Text>,
+      content: (
+        <Text fontWeight="600">{t('home.account_summary.accounts')}</Text>
+      ),
       subContent: (
         <View style={styles.detail}>
           <Text fontWeight="500">
@@ -51,7 +55,9 @@ export default function AccountSummary({
     {
       key: 'rewards',
       avatar: <IconRewards />,
-      content: <Text fontWeight="600">CoinJar Rewards</Text>,
+      content: (
+        <Text fontWeight="600">{t('home.account_summary.rewards')}</Text>
+      ),
       subContent: (
         <View style={styles.detail}>
           <Text fontWeight="500">

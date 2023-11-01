@@ -35,7 +35,10 @@
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
     "@react-native/metro-config": "^0.72.11",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.3.2",
     "@tsconfig/react-native": "^3.0.0",
+    "@types/jest": "^29.5.7",
     "@types/react": "^18.0.24",
     "@types/react-relay": "^14.1.5",
     "@types/react-test-renderer": "^18.0.0",
@@ -58,6 +61,7 @@
     "react-native-svg-transformer": "^1.1.0",
     "react-test-renderer": "18.2.0",
     "relay-compiler": "^15.0.0",
+    "ts-jest": "^29.1.1",
     "typescript": "*"
   },
   "engines": {

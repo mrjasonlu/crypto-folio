@@ -4,10 +4,16 @@
   },
   "home": {
     "title": "Your CoinJar",
-    "hide_balance": "Hide Balances"
+    "hide_balance": "Hide Balances",
+    "account_summary": {
+      "accounts": "Accounts",
+      "rewards": "CoinJar Rewards"
+    }
   },
   "accounts": {
-    "title": "accounts"
+    "title": "accounts",
+    "cash": "Cash",
+    "crypto": "Crypto"
   },
   "error": {
     "api": {

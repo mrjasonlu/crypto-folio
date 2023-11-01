@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-
 import Logo from '@assets/images/CoinJarLogo.svg';
 import Brand from '@assets/images/Brand.svg';
 import styles from './styles';

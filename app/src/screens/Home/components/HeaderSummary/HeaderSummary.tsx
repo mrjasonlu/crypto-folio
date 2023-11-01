@@ -1,7 +1,7 @@
 import { View, ActivityIndicator } from 'react-native';
 import Text from '@src/components/Text/Text';
 import currency from 'currency.js';
-
+import { useTranslation } from 'react-i18next';
 import styles from './styles';
 import { COLORS, FONT_SIZE } from '@src/styles/theme';
 import { replaceBalanceWithAsterisk } from '@src/utils/portfolioUtils';
@@ -19,10 +19,11 @@ export default function HeaderSummary({
   isLoading,
   hideBalance,
 }: HeaderSummaryProps) {
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <Text color={COLORS.WHITE_A50} fontWeight="700">
-        Profit/Loss
+        {t('header.profit_loss')}
       </Text>
       {isLoading ? (
         <ActivityIndicator />

@@ -19,8 +19,9 @@ export const calculateTotalAssetBalance = (
   }
 
   const total = assets.reduce((acc, symbol) => {
-    return currency(acc).add(tickerPairList[symbol].balanceInLocalCurrency)
-      .value;
+    return currency(acc).add(
+      tickerPairList[symbol].balanceInLocalCurrency as number,
+    ).value;
   }, 0);
   return total;
 };

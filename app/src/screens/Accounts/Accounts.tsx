@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, View, Image } from 'react-native';
+import { View } from 'react-native';
 import Text from '@src/components/Text/Text';
 import { PortfolioQueryKey } from '@src/providers/RealtimeTracker';
 import { useQuery } from '@tanstack/react-query';
 import { TickerPairList } from '@src/common/types';
 import List from '@src/components/List/List';
+import { useTranslation } from 'react-i18next';
 import {
   FIAT_LIST,
   replaceBalanceWithAsterisk,
@@ -17,10 +18,12 @@ import currency from 'currency.js';
 import { COLORS, FONT_SIZE } from '@src/styles/theme';
 
 export default function Accounts() {
+  const { t } = useTranslation();
   const { state } = useContext(AccountSettingsContext) || {};
-  const { data } = useQuery({
-    queryKey: PortfolioQueryKey,
-  });
+  const { data } =
+    useQuery({
+      queryKey: PortfolioQueryKey,
+    }) || {};
 
   const assets = data as TickerPairList;
   const fiatAssets = Object.keys(assets)
@@ -105,11 +108,11 @@ export default function Accounts() {
   return (
     <View style={styles.container}>
       <Text fontSize={FONT_SIZE.xl} fontWeight="800" style={styles.heading}>
-        Cash
+        {t('accounts.cash')}
       </Text>
       <List listItems={fiatAssets} dividers={DividerTypes.inset} />
       <Text fontSize={FONT_SIZE.xl} fontWeight="800" style={styles.heading}>
-        Crypto
+        {t('accounts.crypto')}
       </Text>
       <List listItems={cryptoAssets} dividers={DividerTypes.inset} />
     </View>
