@@ -31,6 +31,18 @@ yarn start
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ shortly - provided you have set up your emulator/simulator correctly.
 
+## Running tests
+
+Unit tests can be run in the `/app` directory
+
+```bash
+yarn test
+
+or to see test coverage
+
+yarn test-coverage
+```
+
 ## Troubleshooting
 
 If you are seeing network request errors on your Android Emulator when making request to the server, you may need to update the server address at `/app/src/config/settings.ts` from `localhost` to `http://10.0.2.2:4000/graphql` or `http://<your ip address>:4000/graphql`
