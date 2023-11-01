@@ -1,9 +1,10 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+import { SERVER_API } from '@src/config/settings';
 
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise:
 export function fetchQuery(operation: any, variables: any) {
-  return fetch('http://localhost:4000/graphql', {
+  return fetch(SERVER_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

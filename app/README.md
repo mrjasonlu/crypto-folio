@@ -31,6 +31,6 @@ yarn android
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ shortly - provided you have set up your emulator/simulator correctly.
 
-### Troubleshooting
+## Troubleshooting
 
-If you are seeing network request errors on your Android Emulator when making request to the server, you may need to update the server address from localhost to `http://10.0.2.2:4000/graphql` or `http://<your ip address>:4000/graphql`
+If you are seeing network request errors on your Android Emulator when making request to the server, you may need to update the server address at `/app/src/config/settings.ts` from `localhost` to `http://10.0.2.2:4000/graphql` or `http://<your ip address>:4000/graphql`
