@@ -26,7 +26,7 @@ Navigate to `/app`
 
 ```bash
 yarn install
-yarn android
+yarn start
 ```
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ shortly - provided you have set up your emulator/simulator correctly.
